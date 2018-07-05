@@ -20,8 +20,9 @@ int main(int argc, const char* argv[]) {
 
     // Play all levels.
     for (int i = 1; i <= 36; ++i) {
-        // TODO: Play the level.
+        // Play the level.
         Level level(i);
+        level.Play();
 
         // TODO: Select next level.
     }

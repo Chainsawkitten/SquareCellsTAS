@@ -8,8 +8,15 @@ class Level {
          */
         explicit Level(int number);
 
-        // Destructor.
+        /**
+         * Destructor.
+         */
         ~Level();
+
+        /**
+         * Simulate mouse input to play the level.
+         */
+        void Play();
 
     private:
         bool loaded = false;
