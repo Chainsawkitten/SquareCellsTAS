@@ -2,6 +2,7 @@
 
 #include "configuration.hpp"
 #include "FileSystem.hpp"
+#include "Mouse.hpp"
 
 #include <iostream>
 #include <fstream>
@@ -50,6 +51,7 @@ void Level::Play() {
     Vec2 topLeft = (SCREEN_SIZE / 2) - (CELL_SIZE * size / 2);
     cout << "x: " << topLeft.x << endl;
     cout << "y: " << topLeft.y << endl;
+    Mouse::SetPosition(topLeft);
 
     // TODO: Play level.
 }
