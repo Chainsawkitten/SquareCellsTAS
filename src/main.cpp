@@ -27,10 +27,15 @@ int main(int argc, const char* argv[]) {
         Level level(i);
         level.Play();
 
-        // TODO: Select next level.
-        Mouse::SetPosition(NEXT_POS);
+        // Select next level.
+        if (i % 6 != 0) {
+            Mouse::SetPosition(NEXT_POS);
+        } else {
+            Mouse::SetPosition(MENU_POS);
+        }
         auto levelEnd = chrono::high_resolution_clock::now();
 
+        // Mash button.
         while (chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - levelEnd).count() < 3500) {
             Mouse::Press(Mouse::LEFT);
             Timing::Wait(2);
@@ -40,6 +45,21 @@ int main(int argc, const char* argv[]) {
 
         // Wait for next level to fade in.
         Timing::WaitForLevelSwitch();
+
+        // Select next row.
+        if (i % 6 == 0) {
+            // Set mouse position.
+            Mouse::SetPosition(FIRST_ROW_POS + ROW_SIZE * (i / 6));
+
+            // Click.
+            Timing::Wait(2);
+            Mouse::Press(Mouse::LEFT);
+            Timing::Wait(2);
+            Mouse::Release(Mouse::LEFT);
+
+            // Wait.
+            Timing::WaitForLevelFadeIn();
+        }
 
         // Listen to if user wants to quit.
         if (GetKeyState('Q')) {
