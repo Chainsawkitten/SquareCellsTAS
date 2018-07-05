@@ -1,13 +1,9 @@
 #pragma once
 
-/// Width of the screen in pixels.
-const int SCREEN_WIDTH = 1920;
+#include "Vec2.hpp"
 
-/// Height of the screen in pixels.
-const int SCREEN_HEIGHT = 1080;
+/// Size of the screen in pixels.
+const Vec2 SCREEN_SIZE(1920, 1080);
 
-/// Width of a cell in pixels.
-const int CELL_WIDTH = 47;
-
-/// Height of a cell in pixels.
-const int CELL_HEIGHT = 47;
+/// Size of a cell in pixels.
+const Vec2 CELL_SIZE(47, 47);
