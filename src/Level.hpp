@@ -6,8 +6,16 @@ class Level {
          * Load level.
          * @param number Which level to load.
          */
-        Level(int number);
+        explicit Level(int number);
+
+        // Destructor.
+        ~Level();
 
     private:
         bool loaded = false;
+
+        int width;
+        int height;
+
+        bool* cells;
 };
