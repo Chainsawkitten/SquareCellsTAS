@@ -4,6 +4,7 @@ set(SRCS
         Level.cpp
         Mouse.cpp
         Vec2.cpp
+        Timing.cpp
     )
 
 set(HEADERS
@@ -12,6 +13,7 @@ set(HEADERS
         Level.hpp
         Mouse.hpp
         Vec2.hpp
+        Timing.hpp
     )
 
 create_directory_groups(${SRCS} ${HEADERS})
