@@ -1,3 +1,4 @@
+#include <chrono>
 #include <iostream>
 #include <thread>
 #include <windows.h>
@@ -12,7 +13,17 @@ int main(int argc, const char* argv[]) {
         this_thread::yield();
     }
 
-    cout << "Done." << endl;
+    // Start time.
+    auto begin = chrono::high_resolution_clock::now();
+
+    this_thread::sleep_for(chrono::milliseconds(1003));
+
+    // End time.
+    auto end = chrono::high_resolution_clock::now();
+
+    // Present time of run.
+    int64_t duration = chrono::duration_cast<chrono::milliseconds>(end - begin).count();
+    cout << "Time: " << duration << " ms" << endl;
 
     return 0;
 }
