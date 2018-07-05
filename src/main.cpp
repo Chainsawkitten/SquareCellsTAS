@@ -1,4 +1,6 @@
+#include "configuration.hpp"
 #include "Level.hpp"
+#include "Mouse.hpp"
 #include "Timing.hpp"
 
 #include <chrono>
@@ -25,10 +27,19 @@ int main(int argc, const char* argv[]) {
         Level level(i);
         level.Play();
 
-        // Wait for menu.
-        Timing::WaitForLevelClear();
-
         // TODO: Select next level.
+        Mouse::SetPosition(NEXT_POS);
+        auto levelEnd = chrono::high_resolution_clock::now();
+
+        while (chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - levelEnd).count() < 3000) {
+            Mouse::Press(Mouse::LEFT);
+            Timing::Wait(1);
+            Mouse::Release(Mouse::LEFT);
+            Timing::Wait(1);
+        }
+
+        // Wait for next level to fade in.
+        Timing::WaitForLevelSwitch();
 
         // Listen to if user wants to quit.
         if (GetKeyState('Q')) {
