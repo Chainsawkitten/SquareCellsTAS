@@ -8,7 +8,7 @@ namespace Timing {
     void Wait(int frames);
 
     /**
-     * Wait for level to fade and menu to come in.
+     * Wait for level switch.
      */
-    void WaitForLevelClear();
+    void WaitForLevelSwitch();
 }

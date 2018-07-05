@@ -10,7 +10,7 @@ namespace Timing {
         this_thread::sleep_for(chrono::microseconds(16667 * frames));
     }
 
-    void WaitForLevelClear() {
-        this_thread::sleep_for(chrono::milliseconds(1000));
+    void WaitForLevelSwitch() {
+        this_thread::sleep_for(chrono::milliseconds(2000));
     }
 }
