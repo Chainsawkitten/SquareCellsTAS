@@ -5,6 +5,7 @@ set(SRCS
     )
 
 set(HEADERS
+        configuration.hpp
         FileSystem.hpp
         Level.hpp
     )
