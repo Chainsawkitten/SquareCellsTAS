@@ -31,11 +31,11 @@ int main(int argc, const char* argv[]) {
         Mouse::SetPosition(NEXT_POS);
         auto levelEnd = chrono::high_resolution_clock::now();
 
-        while (chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - levelEnd).count() < 3000) {
+        while (chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - levelEnd).count() < 3500) {
             Mouse::Press(Mouse::LEFT);
-            Timing::Wait(1);
+            Timing::Wait(2);
             Mouse::Release(Mouse::LEFT);
-            Timing::Wait(1);
+            Timing::Wait(2);
         }
 
         // Wait for next level to fade in.

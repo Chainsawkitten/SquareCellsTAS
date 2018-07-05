@@ -12,4 +12,4 @@ const Vec2 CELL_SIZE(47, 47);
 const Vec2 MENU_POS(960, 1075);
 
 /// Position of the next button.
-const Vec2 NEXT_POS(1900, 916);
+const Vec2 NEXT_POS(1160, 916);
