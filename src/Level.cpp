@@ -58,13 +58,19 @@ void Level::Play() {
             Mouse::MouseButton button = (cells[y * size.x + x] ? Mouse::RIGHT : Mouse::LEFT);
 
             Mouse::SetPosition(topLeft + pos * CELL_SIZE + CELL_SIZE / 2);
+
+            // For some reason, the game won't register the press unless
+            // we wait one frame only when using right mouse button.
+            if (button == Mouse::RIGHT)
+                Timing::Wait(2);
+
             Mouse::Press(button);
 
-            Timing::Wait(1);
+            Timing::Wait(2);
 
             Mouse::Release(button);
 
-            Timing::Wait(1);
+            Timing::Wait(2);
         }
     }
 }
