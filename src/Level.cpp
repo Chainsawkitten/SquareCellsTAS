@@ -49,9 +49,8 @@ void Level::Play() {
         return;
 
     Vec2 topLeft = (SCREEN_SIZE / 2) - (CELL_SIZE * size / 2);
-    cout << "x: " << topLeft.x << endl;
-    cout << "y: " << topLeft.y << endl;
     Mouse::SetPosition(topLeft);
+    Mouse::Press(Mouse::LEFT);
 
     // TODO: Play level.
 }
