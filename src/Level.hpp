@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Vec2.hpp"
+
 class Level {
     public:
         /**
@@ -21,8 +23,6 @@ class Level {
     private:
         bool loaded = false;
 
-        int width;
-        int height;
-
+        Vec2 size;
         bool* cells;
 };
