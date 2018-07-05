@@ -1,3 +1,5 @@
+#include "Level.hpp"
+
 #include <chrono>
 #include <iostream>
 #include <thread>
@@ -16,7 +18,13 @@ int main(int argc, const char* argv[]) {
     // Start time.
     auto begin = chrono::high_resolution_clock::now();
 
-    this_thread::sleep_for(chrono::milliseconds(1003));
+    // Play all levels.
+    for (int i = 1; i <= 36; ++i) {
+        // TODO: Play the level.
+        Level level(i);
+
+        // TODO: Select new level if row beaten.
+    }
 
     // End time.
     auto end = chrono::high_resolution_clock::now();
