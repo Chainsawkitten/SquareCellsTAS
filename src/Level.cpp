@@ -41,3 +41,10 @@ Level::~Level() {
     if (loaded)
         delete[] cells;
 }
+
+void Level::Play() {
+    if (!loaded)
+        return;
+
+    // TODO: Play level.
+}
