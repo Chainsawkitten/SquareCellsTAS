@@ -23,7 +23,7 @@ int main(int argc, const char* argv[]) {
         // TODO: Play the level.
         Level level(i);
 
-        // TODO: Select new level if row beaten.
+        // TODO: Select next level.
     }
 
     // End time.
