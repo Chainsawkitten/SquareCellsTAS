@@ -1,5 +1,6 @@
 #include "Level.hpp"
 
+#include "configuration.hpp"
 #include "FileSystem.hpp"
 
 #include <iostream>
@@ -21,13 +22,13 @@ Level::Level(int number) {
     file.open(filename);
 
     // Load dimensions.
-    file >> width;
-    file >> height;
+    file >> size.x;
+    file >> size.y;
 
     // Load cells.
-    cells = new bool[width * height];
+    cells = new bool[size.x * size.y];
     char c;
-    for (int i = 0; i < width * height; ++i) {
+    for (int i = 0; i < size.x * size.y; ++i) {
         file >> c;
         cells[i] = (c == '1');
     }
@@ -45,6 +46,10 @@ Level::~Level() {
 void Level::Play() {
     if (!loaded)
         return;
+
+    Vec2 topLeft = (SCREEN_SIZE / 2) - (CELL_SIZE * size / 2);
+    cout << "x: " << topLeft.x << endl;
+    cout << "y: " << topLeft.y << endl;
 
     // TODO: Play level.
 }
