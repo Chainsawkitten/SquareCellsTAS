@@ -29,6 +29,12 @@ int main(int argc, const char* argv[]) {
         Timing::WaitForLevelClear();
 
         // TODO: Select next level.
+
+        // Listen to if user wants to quit.
+        if (GetKeyState('Q')) {
+            cout << "User quit manually." << endl;
+            break;
+        }
     }
 
     // End time.
