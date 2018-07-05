@@ -28,5 +28,14 @@ function(create_directory_groups)
     endforeach()
 endfunction()
 
+# Copy level data.
+add_custom_target(Levels ALL)
+add_custom_command(
+    TARGET Levels
+    COMMAND ${CMAKE_COMMAND} -E copy_directory data ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/data
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    COMMENT "Copying level data."
+)
+
 # Add source files.
 add_subdirectory(src)
