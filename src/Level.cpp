@@ -24,11 +24,13 @@ Level::Level(int number) {
     file >> width;
     file >> height;
 
-    cout << "w: " << width << endl;
-    cout << "h: " << height << endl;
-
-    // TODO: Load cells.
+    // Load cells.
     cells = new bool[width * height];
+    char c;
+    for (int i = 0; i < width * height; ++i) {
+        file >> c;
+        cells[i] = (c == '1');
+    }
 
     file.close();
 
