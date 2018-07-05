@@ -3,6 +3,7 @@
 #include "configuration.hpp"
 #include "FileSystem.hpp"
 #include "Mouse.hpp"
+#include "Timing.hpp"
 
 #include <iostream>
 #include <fstream>
@@ -49,8 +50,21 @@ void Level::Play() {
         return;
 
     Vec2 topLeft = (SCREEN_SIZE / 2) - (CELL_SIZE * size / 2);
-    Mouse::SetPosition(topLeft);
-    Mouse::Press(Mouse::LEFT);
 
-    // TODO: Play level.
+    // Play level.
+    for (int x = 0; x < size.x; ++x) {
+        for (int y = 0; y < size.y; ++y) {
+            Vec2 pos(x, y);
+            Mouse::MouseButton button = (cells[y * size.x + x] ? Mouse::RIGHT : Mouse::LEFT);
+
+            Mouse::SetPosition(topLeft + pos * CELL_SIZE + CELL_SIZE / 2);
+            Mouse::Press(button);
+
+            Timing::Wait(1);
+
+            Mouse::Release(button);
+
+            Timing::Wait(1);
+        }
+    }
 }
