@@ -55,7 +55,10 @@ void Level::Play() {
     for (int x = 0; x < size.x; ++x) {
         for (int y = 0; y < size.y; ++y) {
             Vec2 pos(x, y);
-            Mouse::MouseButton button = (cells[y * size.x + x] ? Mouse::RIGHT : Mouse::LEFT);
+            if (x % 2 == 1)
+                pos.y = size.y - pos.y - 1;
+
+            Mouse::MouseButton button = (cells[pos.y * size.x + pos.x] ? Mouse::RIGHT : Mouse::LEFT);
 
             Mouse::SetPosition(topLeft + pos * CELL_SIZE + CELL_SIZE / 2);
 
