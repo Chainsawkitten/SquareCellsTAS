@@ -1,4 +1,5 @@
 #include "Level.hpp"
+#include "Timing.hpp"
 
 #include <chrono>
 #include <iostream>
@@ -23,6 +24,9 @@ int main(int argc, const char* argv[]) {
         // Play the level.
         Level level(i);
         level.Play();
+
+        // Wait for menu.
+        Timing::WaitForLevelClear();
 
         // TODO: Select next level.
     }
