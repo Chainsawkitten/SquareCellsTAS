@@ -27,6 +27,10 @@ int main(int argc, const char* argv[]) {
         Level level(i);
         level.Play();
 
+        // Quit after breaking last block in last level.
+        if (i == 36)
+            break;
+
         // Select next level.
         if (i % 6 != 0) {
             Mouse::SetPosition(NEXT_POS);
