@@ -15,10 +15,10 @@ namespace Timing {
     }
 
     void WaitForLevelSelect() {
-        this_thread::sleep_for(chrono::milliseconds(1050));
+        this_thread::sleep_for(chrono::milliseconds(1100));
     }
 
     void WaitForLevelFadeIn() {
-        this_thread::sleep_for(chrono::milliseconds(1250));
+        this_thread::sleep_for(chrono::milliseconds(1400));
     }
 }
