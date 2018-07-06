@@ -13,6 +13,11 @@ namespace Timing {
     void WaitForLevelSwitch();
 
     /**
+     * Wait for level select screen.
+     */
+    void WaitForLevelSelect();
+
+    /**
      * Wait for level to fade in from level select.
      */
     void WaitForLevelFadeIn();
