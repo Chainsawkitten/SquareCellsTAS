@@ -19,6 +19,6 @@ namespace Timing {
     }
 
     void WaitForLevelFadeIn() {
-        this_thread::sleep_for(chrono::milliseconds(1000));
+        this_thread::sleep_for(chrono::milliseconds(1250));
     }
 }
