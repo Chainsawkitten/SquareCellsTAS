@@ -44,7 +44,11 @@ int main(int argc, const char* argv[]) {
         }
 
         // Wait for next level to fade in.
-        Timing::WaitForLevelSwitch();
+        if (i % 6 != 0) {
+            Timing::WaitForLevelSwitch();
+        } else {
+            Timing::WaitForLevelSelect();
+        }
 
         // Select next row.
         if (i % 6 == 0) {
