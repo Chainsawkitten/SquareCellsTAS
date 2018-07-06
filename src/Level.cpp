@@ -50,40 +50,36 @@ void Level::Play() {
         return;
 
     Vec2 topLeft = (SCREEN_SIZE / 2) - (CELL_SIZE * size / 2);
-    int last = -1;
-    Mouse::MouseButton button;
 
-    // Play level.
+    // Destroy blocks.
+    Mouse::SetPosition(topLeft - CELL_SIZE);
+    Mouse::Press(Mouse::LEFT);
     for (int x = 0; x < size.x; ++x) {
         for (int y = 0; y < size.y; ++y) {
             Vec2 pos(x, y);
-            if (x % 2 == 1)
-                pos.y = size.y - pos.y - 1;
-
             bool cell = cells[pos.y * size.x + pos.x];
 
-            if (last != cell) {
-                if (last != -1) {
-                    Mouse::Release(button);
-                    Timing::Wait(2);
-                }
-
-                button = (cell ? Mouse::RIGHT : Mouse::LEFT);
+            if (!cell) {
+                Mouse::SetPosition(topLeft + pos * CELL_SIZE + CELL_SIZE / 2);
+                Timing::Wait(2);
             }
-
-            Mouse::SetPosition(topLeft + pos * CELL_SIZE + CELL_SIZE / 2);
-
-            if (last != cell) {
-                // For some reason, the game won't register the press unless
-                // we wait one frame only when using right mouse button.
-                if (button == Mouse::RIGHT)
-                    Timing::Wait(2);
-
-                Mouse::Press(button);
-            }
-
-            Timing::Wait(2);
-            last = cell;
         }
     }
+    Mouse::Release(Mouse::LEFT);
+
+    // Mark blocks to keep.
+    Mouse::Press(Mouse::RIGHT);
+    Timing::Wait(2);
+    for (int x = 0; x < size.x; ++x) {
+        for (int y = 0; y < size.y; ++y) {
+            Vec2 pos(x, y);
+            bool cell = cells[pos.y * size.x + pos.x];
+
+            if (cell) {
+                Mouse::SetPosition(topLeft + pos * CELL_SIZE + CELL_SIZE / 2);
+                Timing::Wait(2);
+            }
+        }
+    }
+    Mouse::Release(Mouse::RIGHT);
 }
