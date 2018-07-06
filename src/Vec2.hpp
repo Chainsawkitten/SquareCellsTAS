@@ -32,6 +32,13 @@ class Vec2 {
         Vec2 operator*(const Vec2& other) const;
 
         /**
+         * Scalar multiplication.
+         * @param other Scalar to multiply with.
+         * @return Product.
+         */
+        Vec2 operator*(int scalar) const;
+
+        /**
          * Scalar division.
          * @param scalar Scalar to divide with.
          * @return Quotient.
