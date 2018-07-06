@@ -73,7 +73,7 @@ int main(int argc, const char* argv[]) {
 
     // Present time of run.
     int64_t duration = chrono::duration_cast<chrono::milliseconds>(end - begin).count();
-    cout << "Time: " << duration << " ms" << endl;
+    cout << "Time: " << (duration / 60000) << ":" << ((duration % 60000) / 1000) << "." << (duration % 1000) << endl;
 
     return 0;
 }
