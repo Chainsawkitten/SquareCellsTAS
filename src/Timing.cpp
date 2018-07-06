@@ -11,7 +11,7 @@ namespace Timing {
     }
 
     void WaitForLevelSwitch() {
-        this_thread::sleep_for(chrono::milliseconds(1000));
+        this_thread::sleep_for(chrono::milliseconds(900));
     }
 
     void WaitForLevelSelect() {
