@@ -15,7 +15,7 @@ const Vec2 MENU_POS(960, 916);
 const Vec2 NEXT_POS(1160, 916);
 
 /// Position of the first row.
-const Vec2 FIRST_ROW_POS(789, 438);
+const Vec2 FIRST_ROW_POS(789, 370);
 
 /// Offset from one row to the next.
 const Vec2 ROW_SIZE(0, 68);
