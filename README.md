@@ -1,13 +1,16 @@
 # SquareCellsTAS
-TAS bot for SquareCells. Windows only (due to usage of WinAPI to simulate mouse).
+TAS bot for SquareCells. Windows only.
 
 ## Building
-Use CMake to generate project files. If you're using a different screen resolution than 1920x1080, change the values in `src/configuration.hpp`. Then build as usual.
+Open in Visual Studio. Add a reference to the UnityEngine.dll shipped with the game. If you're using a different screen resolution than 1920x1080, change the values in `SquareCellsTAS/Configuration.cs`. Then build as usual.
 
 ## Usage
-Start the bot, open up Level 1 in SquareCells and press R. Make sure you run SquareCells in fullscreen mode or else the positions will be off.
+1. Copy the data folder to the SquareCells directory.
+1. Start SquareCells.
+1. Inject the SquareCellsTAS DLL into SquareCells using [SharpMonoInjector](https://github.com/warbler/SharpMonoInjector) or other injector of your choice. The class name is 'Loader' and the method name is 'Init'.
+1. Open up Level 1 and press R. Make sure you run SquareCells in fullscreen mode or else the positions will be off.
 
 ## Possible timesaves
-Input is limited by framerate. Tighter timings could be used if I had a computer that could run the game at a solid 120 fps. Right now I wait ~33 ms between inputs. The timings can be changed in `src/Timing.cpp`.
+Input is limited by framerate. Tighter timings could be used if I had a computer that could run the game at a solid 120 fps. Right now I wait 2 frames between inputs. The timings can be changed in `SquareCellsTAS/Timing.cs`.
 
-It is possible to click the Next and Menu buttons as they slide in. I don't use this as I couldn't get it consistent. Again, a better computer might be able to make it more consistent.
+It is possible to click the Next and Menu buttons as they slide in. This is in the works.
