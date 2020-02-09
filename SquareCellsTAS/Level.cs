@@ -57,7 +57,7 @@ namespace SquareCellsTAS
                     if (!cell)
                     {
                         Mouse.SetPosition(topLeft + pos * Configuration.CellSize + Configuration.CellSize / 2);
-                        Timing.Wait(2);
+                        Timing.Wait(1);
                     }
                 }
             }
@@ -65,7 +65,7 @@ namespace SquareCellsTAS
 
             // Mark blocks to keep.
             Mouse.Press(Mouse.MouseButton.RIGHT);
-            Timing.Wait(2);
+            Timing.Wait(1);
             for (int x = 0; x < size.x; ++x)
             {
                 for (int y = 0; y < size.y; ++y)
@@ -76,7 +76,7 @@ namespace SquareCellsTAS
                     if (cell)
                     {
                         Mouse.SetPosition(topLeft + pos * Configuration.CellSize + Configuration.CellSize / 2);
-                        Timing.Wait(2);
+                        Timing.Wait(1);
                     }
                 }
             }

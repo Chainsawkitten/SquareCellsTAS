@@ -10,7 +10,12 @@ namespace SquareCellsTAS
         /// <param name="frames">The number of frames to wait.</param>
         public static void Wait(int frames)
         {
-            Thread.Sleep(17 * frames);
+            uint startFrame = Loader.GetFrame();
+
+            while (Loader.GetFrame() - startFrame < frames)
+            {
+                // Busy wait.
+            }
         }
 
         /// <summary>
@@ -18,7 +23,8 @@ namespace SquareCellsTAS
         /// </summary>
         public static void WaitForLevelSwitch()
         {
-            Thread.Sleep(900);
+            Thread.Sleep(150);
+            Wait(1);
         }
 
         /// <summary>
@@ -26,7 +32,7 @@ namespace SquareCellsTAS
         /// </summary>
         public static void WaitForLevelSelect()
         {
-            Thread.Sleep(1100);
+            Thread.Sleep(900);
         }
 
         /// <summary>
@@ -34,7 +40,8 @@ namespace SquareCellsTAS
         /// </summary>
         public static void WaitForLevelFadeIn()
         {
-            Thread.Sleep(1400);
+            Thread.Sleep(1500);
+            Wait(1);
         }
     }
 }

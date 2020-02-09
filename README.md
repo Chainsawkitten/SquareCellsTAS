@@ -11,6 +11,6 @@ Open in Visual Studio. Add a reference to the UnityEngine.dll shipped with the g
 1. Open up Level 1 and press R. Make sure you run SquareCells in fullscreen mode or else the positions will be off.
 
 ## Possible timesaves
-Input is limited by framerate. Tighter timings could be used if I had a computer that could run the game at a solid 120 fps. Right now I wait 2 frames between inputs. The timings can be changed in `SquareCellsTAS/Timing.cs`.
+Input is limited by framerate. Running the game at 120 fps would allow me to do inputs twice as fast but I don't have a monitor that supports that.
 
 It is possible to click the Next and Menu buttons as they slide in. This is in the works.
