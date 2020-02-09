@@ -5,7 +5,7 @@ namespace SquareCellsTAS
 {
     class FrameCounter : MonoBehaviour
     {
-        public int frameCount = 0;
+        public uint frameCount = 0;
 
         public void Start()
         {

@@ -38,6 +38,15 @@ namespace SquareCellsTAS
         }
 
         /// <summary>
+        /// Get the current frame number since being injected.
+        /// </summary>
+        /// <returns>The current frame number</returns>
+        public static uint GetFrame()
+        {
+            return Loader.frameCounter.GetComponent<FrameCounter>().frameCount;
+        }
+
+        /// <summary>
         /// The main script.
         /// </summary>
         public static void MainThread()
@@ -48,8 +57,6 @@ namespace SquareCellsTAS
             // Start timer.
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-
-            //Mouse.SetPosition(new Vec2(10, 10));
 
             // Play all levels.
             for (int i = 1; i <= 36; ++i)
@@ -71,7 +78,7 @@ namespace SquareCellsTAS
                 {
                     Mouse.SetPosition(Configuration.MenuPos);
                 }
-                //auto levelEnd = chrono::high_resolution_clock::now();
+
                 Stopwatch levelEnd = new Stopwatch();
                 levelEnd.Start();
 
@@ -79,9 +86,9 @@ namespace SquareCellsTAS
                 while (levelEnd.ElapsedMilliseconds < 3500)
                 {
                     Mouse.Press(Mouse.MouseButton.LEFT);
-                    Timing.Wait(2);
+                    Timing.Wait(1);
                     Mouse.Release(Mouse.MouseButton.LEFT);
-                    Timing.Wait(2);
+                    Timing.Wait(1);
                 }
 
                 // Wait for next level to fade in.
@@ -101,9 +108,9 @@ namespace SquareCellsTAS
                     Mouse.SetPosition(Configuration.FirstRowPos + Configuration.RowSize * (i / 6));
 
                     // Click.
-                    Timing.Wait(2);
+                    Timing.Wait(1);
                     Mouse.Press(Mouse.MouseButton.LEFT);
-                    Timing.Wait(2);
+                    Timing.Wait(1);
                     Mouse.Release(Mouse.MouseButton.LEFT);
 
                     // Wait.
